@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 import SearchBar from "../components/SearchBar";
 import useResults from "../hooks/useResults";
 import ResultsList from "../components/ResultsList";
@@ -27,26 +27,36 @@ const SearchScreen = () => {
   // result.price === price controlla se il prezzo di ogni oggetto (result.price) è uguale al valore specificato nel parametro price
 
   return (
-    <View>
+    <View style={{ flex: 1 }}>
+      {/* Permette lo scorrimento verticale per tutto il contenuto  */}
       <SearchBar term={term} onTermChange={setTerm} onTermSubmit={searchApi} />
-      <Text>Trovati {results.length}</Text>
-      <ResultsList results={filterResultsByPrice("€")} title="Convenienti" />
-      <ResultsList
-        results={filterResultsByPrice("€€")}
-        title="Un po' più caro"
-      />
-      <ResultsList
-        results={filterResultsByPrice("€€€")}
-        title="I più costosi"
-      />
-      <ResultsList
-        results={filterResultsByPrice("€€€€")}
-        title="Costosissimi"
-      />
+      <Text>Abbiamo trovato {results.length} risultati</Text>
+      <ScrollView>
+        {/* Permette lo scorrimento verticale  */}
+        <ResultsList results={filterResultsByPrice("€")} title="Convenienti" />
+        <ResultsList
+          results={filterResultsByPrice("€€")}
+          title="Un po' più caro"
+        />
+        <ResultsList
+          results={filterResultsByPrice("€€€")}
+          title="I più costosi"
+        />
+        <ResultsList
+          results={filterResultsByPrice("€€€€")}
+          title="I migliori"
+        />
+      </ScrollView>
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginLeft: 15,
+  },
+});
 
 export default SearchScreen;

@@ -8,7 +8,7 @@ const navigator = createStackNavigator({
   initialRouteName: "Search", // la schermata mostrata per prima
 
   defaultNavigationOptions:{
-    title: "Business Search" // opzioni predefinite in questo caso titolo della barra di navigazione (quella in alto)
+    title: "Ristoranti" // opzioni predefinite in questo caso titolo della barra di navigazione (quella in alto)
   }
 });
 

@@ -16,7 +16,7 @@ export default () => {
         },
       });
       setResults(response.data.businesses);
-      console.log(response.data.businesses)
+      // console.log(response.data.businesses)
     } catch (err) {
       alert("C'è stato un problema con la tua ricerca, riprova più tardi");
     }
