@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 15,
     flexDirection: "row",
     paddingHorizontal: 10, // aggiunge spazio interno ai lati
+    marginBottom: 10
   },
   icon: {
     marginRight: 10, // spazio tra l'icona e il TextInput
